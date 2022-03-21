@@ -5,7 +5,7 @@ services:
     yiiframework:
         depends_on:
             - webserver
-        image: 'yii2-php:${PHP_IMAGE_NAME}'
+        image: 'yiisoftware/yii2-php:${PHP_IMAGE_NAME}'
         container_name: 'yii2-php-${PHP_IMAGE_NAME}'
         networks:
             - backend            
