@@ -1,9 +1,24 @@
 <?php
 
+defined('YII_DEBUG');// or define('YII_DEBUG', true);
+defined('YII_ENV');// or define('YII_ENV', 'dev');
+
+// register Composer autoloader
+require 'vendor/autoload.php';
+
+// include Yii class file
+require 'vendor/yiisoft/yii2/Yii.php';
+
+// load application configuration
+$config = require 'config/web.php';
+
+// create, configure and run application
+(new yii\web\Application($config))->run();
+
 // Create Test DB Connection
 Yii::$app->set('id', [
 		'class' => 'yii\db\Connection',
-		'dsn' => 'database',
+		'dsn' => 'database:host=localhost;dbname=${DB_NAME}',
 		'username' => ${DB_USER},
 		'password' => ${DB_PASSWORD,
 		'charset' => 'utf8'
@@ -42,7 +57,7 @@ try {
     if ( Yii::$app->db->open() ) {
        // Write Config
         $config['components']['redis']['class'] = 'yii\redis\Connection';
-        $config['components']['redis']['hostname'] = 'database';
+        $config['components']['redis']['hostname'] = 'redis';
         $config['components']['redis']['port'] = 6379;
         $config['components']['redis']['database'] = 0;
 
@@ -56,7 +71,7 @@ try {
         $errorMsg = $e->getMessage();
 }
 
-This provides the basic access to redis storage via the redis application component:
+// This provides the basic access to redis storage via the redis application component:
 
 Yii::$app->redis->set('mykey', 'some value');
 echo Yii::$app->redis->get('mykey');
