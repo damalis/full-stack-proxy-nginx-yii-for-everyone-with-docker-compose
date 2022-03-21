@@ -28,7 +28,8 @@ services:
         environment:
             TZ: '${LOCAL_TIMEZONE}'
         labels:            
-            - 'docker-volume-backup.stop-during-backup=true'        
+            - 'docker-volume-backup.stop-during-backup=true'
+        command: bash -c 'composer create-project --prefer-dist yiisoft/yii2-app-basic /app'
 
     webserver:
         depends_on:
