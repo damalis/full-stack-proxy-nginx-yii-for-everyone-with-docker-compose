@@ -26,10 +26,11 @@ services:
             - database
             - redis
         environment:
+            #PHP_USER_ID: 33
             TZ: '${LOCAL_TIMEZONE}'
         labels:            
             - 'docker-volume-backup.stop-during-backup=true'
-        command: bash -c 'composer create-project --prefer-dist yiisoft/yii2-app-basic /app'
+        #command: bash -c 'composer create-project --prefer-dist yiisoft/yii2-app-basic basic'
 
     webserver:
         depends_on:
