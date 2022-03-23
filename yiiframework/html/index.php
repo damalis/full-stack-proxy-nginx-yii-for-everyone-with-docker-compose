@@ -1,52 +1,99 @@
 <?php
 
-define('YII_DEBUG', true);
-define('YII_ENV', 'dev');
+// comment out the following two lines when deployed to production
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
 
-// register Composer autoloader
 require 'basic/vendor/autoload.php';
-
-// include Yii class file
 require 'basic/vendor/yiisoft/yii2/Yii.php';
 
-// load application configuration
-//$config = require 'basic/config/web.php';
+// $config = require 'basic/config/web.php';
 	
+// $params = require 'basic/config/params.php';
+// $db = require 'basic/config/db.php';
+
 $config = [
     'id' => 'basic',
-    'basePath' => dirname(__DIR__),
-    'extensions' => require __DIR__ . 'basic/vendor/yiisoft/extensions.php',
+    'basePath' => __DIR__,
+    'bootstrap' => ['log'],
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     'components' => [
+        'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => '',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'user' => [
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => true,
+        ],
+        'errorHandler' => [
+            'errorAction' => 'site/error',
+        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure transport
+            // for the mailer to send real emails.
+            'useFileTransport' => true,
         ],
         'log' => [
-            'class' => 'yii\log\Dispatcher',
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
                 ],
             ],
         ],
         'db' => [
-            'class' => 'yii\db\Connection',
-            'dsn' => 'database:host=localhost',
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
+			'class' => 'yii\db\Connection',
+			'dsn' => 'database:host=localhost;dbname=yii2basic',
+			'username' => 'root',
+			'password' => 'rootpass',
+			'charset' => 'utf8',
+
+			// Schema cache options (for production environment)
+			//'enableSchemaCache' => true,
+			//'schemaCacheDuration' => 60,
+			//'schemaCache' => 'cache',
+		],
+        /*
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
         ],
-		'redis' => [
-            'class' => 'yii\redis\Connection',
-            'hostname' => 'redis',
-            'port' => 6379,
-            'database' => 0,
-        ],
+        */
     ],
+    'params' => [
+		'adminEmail' => 'admin@example.com',
+		'senderEmail' => 'noreply@example.com',
+		'senderName' => 'Example.com mailer',
+	],
 ];
 
-// create, configure and run application
+if (YII_ENV_DEV) {
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        // uncomment the following to add your IP if you are not connecting from localhost.
+        //'allowedIPs' => ['127.0.0.1', '::1'],
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+        // uncomment the following to add your IP if you are not connecting from localhost.
+        //'allowedIPs' => ['127.0.0.1', '::1'],
+    ];
+}
+
 (new yii\web\Application($config))->run();
