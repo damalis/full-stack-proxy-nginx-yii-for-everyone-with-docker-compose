@@ -110,13 +110,6 @@ $requirements = array(
         'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html">MemCache</a>',
         'memo' => extension_loaded('memcached') ? 'To use memcached set <a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
     ),
-	array(
-        'name' => 'Redis cache extension',
-        'mandatory' => false,
-        'condition' => extension_loaded('redis') || extension_loaded('rediscached'),
-        'by' => '<a href="https://www.yiiframework.com/extension/yiisoft/yii2-redis/doc/api/2.0/yii-redis-cache">MemCache</a>',
-        'memo' => extension_loaded('rediscached') ? 'To use memcached set <a href="https://www.yiiframework.com/extension/yiisoft/yii2-redis/doc/api/2.0/yii-redis-cache">MemCache::useMemcached</a> to <code>true</code>.' : ''
-    ),
     // CAPTCHA:
     array(
         'name' => 'GD PHP extension with FreeType support',
