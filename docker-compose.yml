@@ -30,7 +30,7 @@ services:
             TZ: '${LOCAL_TIMEZONE}'
         labels:            
             - 'docker-volume-backup.stop-during-backup=true'
-        #command: bash -c 'chmod -R 755 /var/www/html && composer create-project --prefer-dist yiisoft/yii2-app-basic basic'
+        #command: bash -c 'chmod -R 777 /var/www/html && composer create-project --prefer-dist yiisoft/yii2-app-basic basic'
 
     webserver:
         depends_on:
