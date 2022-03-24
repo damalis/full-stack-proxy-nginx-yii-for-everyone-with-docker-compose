@@ -7,14 +7,9 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 require 'basic/vendor/autoload.php';
 require 'basic/vendor/yiisoft/yii2/Yii.php';
 
-// $config = require 'basic/config/web.php';
-	
-// $params = require 'basic/config/params.php';
-// $db = require 'basic/config/db.php';
-
 $config = [
     'id' => 'basic',
-    'basePath' => __DIR__,
+    'basePath' => '/app/basic',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
