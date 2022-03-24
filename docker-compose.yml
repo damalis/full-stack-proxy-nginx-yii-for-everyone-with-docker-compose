@@ -29,7 +29,7 @@ services:
             TZ: '${LOCAL_TIMEZONE}'
         labels:            
             - 'docker-volume-backup.stop-during-backup=true'
-        command: bash -c 'mkdir -p /var/www/html/assets && chmod -R 777 /var/www/html/assets && [ "$$(ls -A ./basic)" ] && composer update --prefer-dist yiisoft/yii2-app-basic --working-dir=./basic --no-interaction --with-all-dependencies || composer create-project --prefer-dist yiisoft/yii2-app-basic basic --no-interaction && tail -f /dev/null'
+        command: bash -c 'mkdir -p /var/www/html/assets && chmod -R 777 /var/www/html/assets && [ "$$(ls -A ./basic)" ] && composer update --prefer-dist yiisoft/yii2-app-basic --working-dir=./basic --no-interaction --with-all-dependencies || composer create-project --prefer-dist yiisoft/yii2-app-basic basic --no-interaction'
 
     webserver:
         depends_on:
@@ -95,7 +95,7 @@ services:
         hostname: proxy
         restart: unless-stopped
         ports:
-            - '80:8080'
+            - '80:8880'
             - '443:8443' 
         environment:
             TZ: '${LOCAL_TIMEZONE}'            
