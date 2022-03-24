@@ -1,14 +1,14 @@
 version: '3.7'
 
 services:
-		
+
     yiiframework:
         depends_on:
             - webserver
         image: 'yiisoftware/yii2-php:${PHP_IMAGE_NAME}'
         container_name: 'yii2-php-${PHP_IMAGE_NAME}'
         networks:
-            - backend            
+            - backend
         volumes:
             - 'html:${WEBSERVER_DOC_ROOT}'
             - 'app:/app'
@@ -37,7 +37,7 @@ services:
         image: 'httpd:latest'
         container_name: webserver
         networks:
-            - backend            
+            - backend
         volumes:
             - 'html:${WEBSERVER_DOC_ROOT}'
             - type: bind
