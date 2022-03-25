@@ -97,9 +97,10 @@ services:
         hostname: proxy
         restart: unless-stopped
         ports:
-            - '80:8880'
-            - '443:8443' 
+            - '80:80'
+            - '443:443' 
         environment:
+            NGINX_PORT: 80
             TZ: '${LOCAL_TIMEZONE}'            
         labels:            
             - "docker-volume-backup.stop-during-backup=true"
