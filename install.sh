@@ -201,8 +201,6 @@ case "$choice" in
   * ) echo "Invalid input! Aborting now...";;
 esac
 
-cp ./proxy/templates/proxy.sample.conf.template ./proxy/templates/proxy.conf.template
-sed -i 's/example.com/'$domain_name'/g' ./proxy/templates/proxy.conf.template
 cp ./phpmyadmin/apache2/sites-available/default-ssl.sample.conf ./phpmyadmin/apache2/sites-available/default-ssl.conf
 sed -i 's/example.com/'$domain_name'/g' ./phpmyadmin/apache2/sites-available/default-ssl.conf
 
