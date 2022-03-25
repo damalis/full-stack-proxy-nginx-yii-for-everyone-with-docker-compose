@@ -103,12 +103,14 @@ services:
             NGINX_ENVSUBST_TEMPLATE_DIR: '${PROXY_PREFIX}/templates'
             NGINX_ENVSUBST_TEMPLATE_SUFFIX: '.template'
             NGINX_ENVSUBST_OUTPUT_DIR: '${PROXY_PREFIX}/conf.d'
+            NGINX_HOST: '${DOMAIN_NAME}'
             NGINX_PORT: 80
             TZ: '${LOCAL_TIMEZONE}'            
         labels:            
             - "docker-volume-backup.stop-during-backup=true"
         command: >
-            bash -c "sh /tmp/ssl-proxyconf.sh '${DOMAIN_NAME}' '${LETSENCRYPT_CONF_PREFIX}' '${PROXY_PREFIX}'"
+            bash -c "envsubst '$${NGINX_HOST},$${NGINX_PORT}' < /etc/nginx/templates/proxy.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;' 
+            && sh /tmp/ssl-proxyconf.sh '${DOMAIN_NAME}' '${LETSENCRYPT_CONF_PREFIX}' '${PROXY_PREFIX}'"
     
     phpmyadmin:
         depends_on:
@@ -139,7 +141,6 @@ services:
               target: '${PHP_INI_DIR_PREFIX}/php/conf.d/security.ini'
             - 'certbot-etc:${LETSENCRYPT_CONF_PREFIX}'
         hostname: phpmyadmin
-        ipc: private
         restart: unless-stopped
         ports:
             - '9090:443'
