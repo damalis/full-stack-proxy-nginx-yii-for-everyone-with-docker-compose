@@ -1,5 +1,5 @@
 upstream docker_webserver {
-	server	webserver:8080;
+	server webserver:8080;
 }
 
 map $scheme $proxy_x_forwarded_ssl {
