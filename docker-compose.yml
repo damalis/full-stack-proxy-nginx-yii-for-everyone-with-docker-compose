@@ -4,7 +4,7 @@ services:
 
     yiiframework:
         depends_on:
-            - webserver
+            - database
         image: 'yiisoftware/yii2-php:${PHP_IMAGE_NAME}'
         container_name: 'yii2-php-${PHP_IMAGE_NAME}'
         networks:
@@ -35,7 +35,7 @@ services:
 
     webserver:
         depends_on:
-            - certbot
+            - yiiframework
         image: 'httpd:latest'
         container_name: webserver
         networks:
@@ -73,7 +73,7 @@ services:
 
     proxy:
         depends_on:
-            - database
+            - webserver
         image: nginx:stable
         container_name: proxy
         networks:
@@ -84,8 +84,8 @@ services:
               source: ./proxy/nginx.conf
               target: '${PROXY_PREFIX}/nginx.conf'
             - type: bind
-              source: ./proxy/conf.d/proxy.conf
-              target: '${PROXY_PREFIX}/conf.d/default.conf'
+              source: ./proxy/templates/proxy.conf
+              target: '${PROXY_PREFIX}/templates/proxy.conf.template'
             - type: bind
               source: ./proxy/ssl-option/options-ssl-nginx.conf
               target: '${LETSENCRYPT_CONF_PREFIX}/options-ssl-nginx.conf'
@@ -114,7 +114,7 @@ services:
     
     phpmyadmin:
         depends_on:
-            - database
+            - certbot
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         networks:
@@ -189,7 +189,7 @@ services:
             TZ: '${LOCAL_TIMEZONE}'
         labels:            
             - "docker-volume-backup.stop-during-backup=true"
-        command: '--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password'    
+        command: "--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password"
     
     redis:
         image: 'redis:latest'
@@ -212,7 +212,7 @@ services:
             TZ: '${LOCAL_TIMEZONE}'
         labels:            
             - "docker-volume-backup.stop-during-backup=true"
-        command: bash -c 'redis-server ${REDIS_CONF_PREFIX}/redis/redis.conf'
+        command: bash -c "redis-server ${REDIS_CONF_PREFIX}/redis/redis.conf"
     
     backup:
         image: 'futurice/docker-volume-backup'
