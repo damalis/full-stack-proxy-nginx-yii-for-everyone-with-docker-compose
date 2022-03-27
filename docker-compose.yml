@@ -84,7 +84,7 @@ services:
               source: ./proxy/nginx.conf
               target: '${PROXY_PREFIX}/nginx.conf'
             - type: bind
-              source: ./proxy/templates/proxy.conf
+              source: ./proxy/templates/proxy.conf.template
               target: '${PROXY_PREFIX}/templates/proxy.conf.template'
             - type: bind
               source: ./proxy/ssl-option/options-ssl-nginx.conf
