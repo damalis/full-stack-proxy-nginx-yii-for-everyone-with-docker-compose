@@ -85,7 +85,7 @@ services:
               target: '${PROXY_PREFIX}/nginx.conf'
             - type: bind
               source: ./proxy/conf.d/proxy.conf
-              target: '${PROXY_PREFIX}/conf.d/default.conf'
+              target: '${PROXY_PREFIX}/conf.d/site.conf'
             - type: bind
               source: ./proxy/ssl-option/options-ssl-nginx.conf
               target: '${LETSENCRYPT_CONF_PREFIX}/options-ssl-nginx.conf'
