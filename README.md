@@ -180,6 +180,13 @@ docker-compose up -d
 
 ### Website
 
+You should see the above "Congratulations!" page in your browser. If not, please check if your PHP installation satisfies Yii's requirements.
+You can check if the minimum requirements are met using one of the following approaches:
+
+```
+https://example.com/requirements.php
+```
+
 add or remove code in the ./php-fpm/php/conf.d/security.ini file for custom php.ini configurations
 
 Copy and paste the following code in the ./php-fpm/php-fpm.d/z-www.conf file for php-fpm configurations at 1Gb Ram Host
