@@ -101,7 +101,7 @@ services:
             - '443:443' 
         environment:
             NGINX_HOST: ${DOMAIN_NAME}
-            NGINX_PORT: 80		
+            NGINX_PORT: 80
             TZ: '${LOCAL_TIMEZONE}'            
         labels:            
             - "docker-volume-backup.stop-during-backup=true"
