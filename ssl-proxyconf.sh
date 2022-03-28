@@ -23,7 +23,7 @@ reload_nginx() {
 }
 
 wait_for_lets_encrypt() {
-	if [ -d "$2/live/$1" ]; then 
+	if [ -d "$2/live/$1"* ]; then 
 		break 
 	else
 		until [ -d "$2/live/$1"* ]; do
@@ -44,5 +44,3 @@ for domain in $1; do
 		reload_nginx "$3"
 	fi
 done
-
-exec nginx -g "daemon off;"
