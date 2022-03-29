@@ -180,7 +180,7 @@ docker-compose up -d
 
 ### Website
 
-You should see the above "Congratulations!" page in your browser. If not, please check if your PHP installation satisfies Yii's requirements.
+You should see the "Congratulations!" page in your browser. If not, please check if your PHP installation satisfies Yii's requirements.
 You can check if the minimum requirements are met using one of the following approaches:
 
 ```
@@ -202,19 +202,29 @@ pm.max_requests = 1000
 Or you should make changes custom host configurations then must restart service
 
 ```
-docker-compose restart yiiframework
+docker container restart <yiiframework_container_id>
 ```
 
-add and/or remove yiiframework site folders and files with any ftp client program in ```./yiiframework``` folder.
+add and/or remove yiiframework site folders and files with any ftp client program in ```./yiiframework/html``` folder.
 <br />You can also visit `https://example.com` to access website after starting the containers.
 
 #### Redis
 
-set and enable cache option at global configuration [Redis Cache](https://example.com/administrator/).
+add [Redis Cache](https://github.com/yiisoft/yii2-redis) plugin and must add below code to config file.
 
-Cache Handler = redis
-Redis Server Host = redis
-Redis Server Port = 6379
+```
+return [
+    //....
+    'components' => [
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'redis',
+            'port' => 6379,
+            'database' => 0,
+        ],
+    ]
+];
+```
 
 ### phpMyAdmin
 
