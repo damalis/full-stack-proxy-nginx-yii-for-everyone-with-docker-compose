@@ -4,7 +4,7 @@ clear
 echo ""
 echo "================================================================="
 echo "|  								|"
-echo "|  full-stack-yiiframework-for-everyone-with-docker-compose        |"
+echo "|  full-stack-yiiframework-for-everyone-with-docker-compose     |"
 echo "|	 		  by Erdal ALTIN			|"
 echo "|  								|"
 echo "================================================================="
