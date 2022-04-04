@@ -48,9 +48,9 @@ $config = [
         ],
         'db' => [
 			'class' => 'yii\db\Connection',
-			'dsn' => 'database:host=localhost;dbname=yii2basic',
-			'username' => 'root',
-			'password' => 'rootpass',
+			'dsn' => 'database:host=localhost;dbname=DB_NAME',
+			'username' => 'DB_USER',
+			'password' => 'DB_PASSWORD',
 			'charset' => 'utf8',
 
 			// Schema cache options (for production environment)
@@ -66,6 +66,12 @@ $config = [
             ],
         ],
         */
+		'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'redis',
+            'port' => 6379,
+            'database' => 0,
+        ],
     ],
     'params' => [
 		'adminEmail' => 'admin@example.com',
