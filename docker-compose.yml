@@ -31,7 +31,7 @@ services:
             - 'docker-volume-backup.stop-during-backup=true'
         command: >
             bash -c "mkdir -p ${WEBSERVER_DOC_ROOT}/assets && chmod -R 777 ${WEBSERVER_DOC_ROOT}/assets && [ \"$$(ls -A ./basic)\" ] && composer update --prefer-dist yiisoft/yii2-app-basic --working-dir=./basic --no-interaction --with-all-dependencies || composer create-project --prefer-dist yiisoft/yii2-app-basic basic --no-interaction 
-            && sed -i \"/^[[:space:]]\+'cookieValidationKey/ s/''/'\"$$(tr -dc 'a-zA-Z0-9~!@#$$%^&*_()+}{?></\";.,[]=-' < /dev/urandom | fold -w 32 | head -n 1)\"'/\" ${WEBSERVER_DOC_ROOT}/index.php && php-fpm"
+            && composer require --prefer-dist yiisoft/yii2-redis && sed -i \"s/DB_USER/${DB_USER}/; s/DB_PASSWORD/${DB_PASSWORD}/; s/DB_NAME/${DB_NAME}/; /^[[:space:]]\+'cookieValidationKey/ s/''/'\"$$(tr -dc 'a-zA-Z0-9~!@#$$%^&*_()+}{?></\";.,[]=-' < /dev/urandom | fold -w 32 | head -n 1)\"'/\" ${WEBSERVER_DOC_ROOT}/index.php && php-fpm"
 
     webserver:
         depends_on:
