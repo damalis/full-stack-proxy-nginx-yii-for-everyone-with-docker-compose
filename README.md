@@ -127,6 +127,8 @@ manage docker with [Portainer](https://www.portainer.io/solutions/docker) is the
 
 You can also visit `https://example.com:9001` to access portainer after starting the containers.
 
+####could manage docker containers with portainer without command line.
+
 ## Usage
 
 ### Starting containers
@@ -187,9 +189,9 @@ You can check if the minimum requirements are met using one of the following app
 https://example.com/requirements.php
 ```
 
-add or remove code in the ./php-fpm/php/conf.d/security.ini file for custom php.ini configurations
+add or remove code in the ```./php-fpm/php/conf.d/security.ini``` file for custom php.ini configurations
 
-Copy and paste the following code in the ./php-fpm/php-fpm.d/z-www.conf file for php-fpm configurations at 1Gb Ram Host
+Copy and paste the following code in the ```./php-fpm/php-fpm.d/z-www.conf``` file for php-fpm configurations at 1Gb Ram Host
 
 ```
 pm.max_children = 19
@@ -212,23 +214,11 @@ add and/or remove yiiframework site folders and files with any ftp client progra
 
 add [Redis Cache](https://github.com/yiisoft/yii2-redis) plugin and must add below code to config file.
 
-```
-return [
-    //....
-    'components' => [
-        'redis' => [
-            'class' => 'yii\redis\Connection',
-            'hostname' => 'redis',
-            'port' => 6379,
-            'database' => 0,
-        ],
-    ]
-];
-```
+modify redis cache configuration values in the ```./yiiframework/html/index.php``` file.
 
 ### phpMyAdmin
 
-You can add your own custom config.inc.php settings (such as Configuration Storage setup) by creating a file named config.user.inc.php with the various user defined settings in it, and then linking it into the container using:
+could add/remove config.inc.php settings (such as Configuration Storage setup) with the various user defined settings in it:
 
 ```
 ./phpmyadmin/config.user.inc.php
