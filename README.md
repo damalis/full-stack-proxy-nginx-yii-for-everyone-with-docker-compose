@@ -117,7 +117,7 @@ docker-compose up -d
 then reloading for proxy ssl configuration
 
 ```
-docker container restart <proxy_container_id>
+docker container restart proxy
 ```
 
 The containers are now built and running. You should be able to access the Yiiframework installation with the configured IP in the browser address. `https://example.com`.
@@ -127,6 +127,7 @@ For convenience you may add a new entry into your hosts file.
 ### Installation Portainer
 
 ```
+docker volume create portainer_data
 docker-compose -f portainer-docker-compose.yml -p portainer up -d 
 ```
 manage docker with [Portainer](https://www.portainer.io/solutions/docker) is the definitive container management tool for Docker, Docker Swarm with it's highly intuitive GUI and API. 
@@ -210,7 +211,7 @@ pm.max_requests = 1000
 Or you should make changes custom host configurations then must restart service
 
 ```
-docker container restart <yiiframework_container_id>
+docker container restart yiiframework
 ```
 
 add and/or remove yiiframework site folders and files with any ftp client program in ```./yiiframework/html``` folder.
