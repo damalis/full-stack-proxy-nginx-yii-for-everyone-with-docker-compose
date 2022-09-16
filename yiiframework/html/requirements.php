@@ -123,9 +123,9 @@ $requirements = array(
     array(
         'name' => 'Redis extension',
         'mandatory' => false,
-        'condition' => Yii::$app->redis->getIsActive() || Yii::$app->redis->ping('PONG'),
+        'condition' => $redis->getIsActive() || $redis->ping('PONG'),
         'by' => '<a href="https://www.yiiframework.com/extension/yiisoft/yii2-redis/doc/api/2.0/yii-redis-cache">Redis</a>',
-        'memo' => Yii::$app->redis->getIsActive() ? '<a href="https://www.yiiframework.com/extension/yiisoft/yii2-redis/doc/api/2.0/yii-redis-cache">Redis Cache implements a cache application component based on redis key-value store.' : ''
+        'memo' => $redis->getIsActive() ? '<a href="https://www.yiiframework.com/extension/yiisoft/yii2-redis/doc/api/2.0/yii-redis-cache">Redis Cache implements a cache application component based on redis key-value store.' : ''
     ),
     // CAPTCHA:
     array(
