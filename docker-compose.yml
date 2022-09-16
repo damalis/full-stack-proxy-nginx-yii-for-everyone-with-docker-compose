@@ -32,7 +32,7 @@ services:
         command: >
             bash -c "pecl install -o -f redis && rm -rf /tmp/pear && docker-php-ext-enable redis; if [ \"$$(ls -A ./basic)\" ]; then composer update --prefer-dist yiisoft/yii2-app-basic --working-dir=/app/basic --no-interaction; else composer create-project --prefer-dist yiisoft/yii2-app-basic basic --no-interaction; fi 
             && cp -R /app/basic/web/css ${WEBSERVER_DOC_ROOT}/ && composer require --prefer-dist "yiisoft/yii2-redis":~2.0.0 --working-dir=/app/basic; sed \"s/DB_USER/${DB_USER}/;s/DB_PASSWORD/${DB_PASSWORD}/;s/DB_NAME/${DB_NAME}/\" ${WEBSERVER_DOC_ROOT}/db.php_orj > ${WEBSERVER_DOC_ROOT}/db.php 
-            && sed -e \"/^[[:space:]]\+.cookieValidationKey/ s/''/'$$(tr -dc 'A-Za-z0-9!#$$%&()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c 32 ; echo)'/\" ${WEBSERVER_DOC_ROOT}/web.php_orj > ${WEBSERVER_DOC_ROOT}/web.php; 
+            && sed -e \"/^[[:space:]]\+.cookieValidationKey/s/''/'$$(tr -dc 'A-Za-z0-9!#$$%&()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c 32 ; echo)'/\" ${WEBSERVER_DOC_ROOT}/web.php_orj > ${WEBSERVER_DOC_ROOT}/web.php; 
             mkdir -p ${WEBSERVER_DOC_ROOT}/assets && chmod -R 777 ${WEBSERVER_DOC_ROOT}/assets; grep -qe 'date.timezone = ${LOCAL_TIMEZONE}' ${PHP_INI_DIR_PREFIX}/php/conf.d/security.ini || echo 'date.timezone = ${LOCAL_TIMEZONE}' >> ${PHP_INI_DIR_PREFIX}/php/conf.d/security.ini; php-fpm"
 
     webserver:
