@@ -162,7 +162,7 @@ services:
     
     database:
         image: '${DATABASE_IMAGE_NAME}:${DATABASE_VERSION}'
-        container_name: '${DATABASE_CONT_NAME}'
+        container_name: database
         networks:
             - backend
         volumes:
@@ -235,14 +235,14 @@ networks:
 
 volumes:
     html:
-        name: yii2-html
+        name: yiiframework-html
         driver: local
         driver_opts:
             type: none
             device: ${DIRECTORY_PATH}/yiiframework/html
             o: bind
     app:
-        name: yii2-app
+        name: yiiframework-app
         driver: local
         driver_opts:
             type: none
