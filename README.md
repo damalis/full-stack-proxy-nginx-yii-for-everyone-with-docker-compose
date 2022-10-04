@@ -1,6 +1,6 @@
-# [full stack proxy nginx Yii for everyone with docker compose](https://github.com/damalis/full-stack-proxy-nginx-yiiframework-for-everyone-with-docker-compose)
+# [full stack proxy nginx Yii for everyone with docker compose](https://github.com/damalis/full-stack-proxy-nginx-yii-for-everyone-with-docker-compose)
 
-If You want to have a Yii "basic" website at short time; 
+If You want to build a website with Yii "basic" at short time;  
 
 #### Full stack Proxy Nginx Yii "basic":
 <p align="left"> <a href="https://www.yiiframework.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/993323?s=200&v=4" alt="Yii" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" alt="docker" width="40" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://mariadb.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/5877084?s=200&v=4" alt="mariadb" height="50" width="50"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1412239?s=200&v=4" alt="nginx" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/25158?s=200&v=4" alt="php" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://redis.io" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1529926?s=200&v=4" alt="redis" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bash/bash.png" alt="Bash" height="50" width="50" /> </a>&nbsp;&nbsp;&nbsp;
@@ -45,12 +45,12 @@ Create rules to open ports to the internet, or to a specific IPv4 address or ran
 
 download with
 ```
-git clone https://github.com/damalis/full-stack-proxy-nginx-yiiframework-for-everyone-with-docker-compose.git
+git clone https://github.com/damalis/full-stack-proxy-nginx-yii-for-everyone-with-docker-compose.git
 ```
 Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved and run:
 
 ```
-cd full-stack-proxy-nginx-yiiframework-for-everyone-with-docker-compose
+cd full-stack-proxy-nginx-yii-for-everyone-with-docker-compose
 chmod +x install.sh
 ./install.sh
 ```
@@ -70,16 +70,16 @@ Make sure to [add your user to the `docker` group](https://docs.docker.com/insta
 
 download with
 ```
-git clone https://github.com/damalis/full-stack-proxy-nginx-yiiframework-for-everyone-with-docker-compose.git
+git clone https://github.com/damalis/full-stack-proxy-nginx-yii-for-everyone-with-docker-compose.git
 ```
 
 Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved and run:
 
 ```
-cd full-stack-proxy-nginx-yiiframework-for-everyone-with-docker-compose
+cd full-stack-proxy-nginx-yii-for-everyone-with-docker-compose
 ```
 
-### Manual Configuration
+### Manual
 
 Copy the example environment into `.env`
 
@@ -102,12 +102,12 @@ change example.com to your domain name in ```./phpmyadmin/apache2/sites-availabl
 
 ## Installation
 
-### Manual Installation
+### Manual
 
 Firstly: will create external volume
 
 ```
-docker volume create --driver local --opt type=none --opt device=/home/ubuntu/full-stack-proxy-nginx-yiiframework-for-everyone-with-docker-compose/certbot --opt o=bind certbot-etc
+docker volume create --driver local --opt type=none --opt device=${DIRECTORY_PATH}/certbot --opt o=bind certbot-etc
 ```
 
 ```
@@ -211,17 +211,17 @@ pm.max_requests = 1000
 Or you should make changes custom host configurations then must restart service
 
 ```
-docker container restart yiiframework
+docker container restart yii
 ```
 
-add and/or remove yiiframework site folders and files with any ftp client program in ```./yiiframework/html``` folder.
+add and/or remove yii site folders and files with any ftp client program in ```./yii/html``` folder.
 <br />You can also visit `https://example.com` to access website after starting the containers.
 
 #### Redis
 
 add [Redis Cache](https://github.com/yiisoft/yii2-redis) plugin and must add below code to config file.
 
-modify redis cache configuration values in the ```./yiiframework/html/index.php``` file.
+modify redis cache configuration values in the ```./yii/html/index.php``` file.
 
 ### phpMyAdmin
 
@@ -239,12 +239,18 @@ The first authorize screen(htpasswd;username or password) and phpmyadmin login s
 
 This will back up the all files and folders, once per day, and write it to ./backups with a filename like backup-2022-02-07T16-51-56.tar.gz 
 
-#### example for crontab file
+#### example for crontab file on the host machine
 
 ##### # old docker backup folder remove
-50 23 * * * find /home/ubuntu/${DIRECTORY_PATH}/backups/backup* -type f -mtime +1 | xargs rm
 
-##### # backup exclude yiiframework, backups folders in /home/ubuntu/${DIRECTORY_PATH}
-00 01 * * * tar -czvf /home/ubuntu/${DIRECTORY_PATH}/backups/'backup-example.com-'$(date +"\%Y-\%m-\%dT\%H-\%M-\%S")'.tar.gz' --exclude='yiiframework/app' --exclude='backups' /home/ubuntu/${DIRECTORY_PATH}
+```
+50 23 * * * find ${DIRECTORY_PATH}/backups/backup* -type f -mtime +1 | xargs rm
+```
+
+##### # backup exclude yii, backups folders in ${DIRECTORY_PATH}
+
+```
+00 01 * * * tar -czvf ${DIRECTORY_PATH}/backups/'backup-example.com-'$(date +"\%Y-\%m-\%dT\%H-\%M-\%S")'.tar.gz' --exclude='yii/app' --exclude='backups' ${DIRECTORY_PATH}
+```
 
 [CronHowto](https://help.ubuntu.com/community/CronHowto)
