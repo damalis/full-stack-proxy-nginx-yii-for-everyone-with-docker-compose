@@ -36,7 +36,7 @@ services:
         labels:            
             - 'docker-volume-backup.stop-during-backup=true'
         command: >
-            bash -c "apt-get -y update && apt-get install -y zip unzip libicu-dev && docker-php-ext-install intl && pecl install -o -f redis && rm -rf /tmp/pear && docker-php-ext-enable redis intl; curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer &&  
+            bash -c "apt-get -y update && apt-get install -y zip unzip libicu-dev && docker-php-ext-install intl && pecl install -o -f redis && rm -rf /tmp/pear && docker-php-ext-enable redis; curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer &&  
             if [ -f \"${WEBSERVER_DOC_ROOT}/web.php\" ]; then composer update --prefer-dist yiisoft/yii2-app-basic --working-dir=/app/basic; else composer create-project --prefer-dist yiisoft/yii2-app-basic basic; fi && 
             composer require --prefer-dist "yiisoft/yii2-redis":~2.0.0 --working-dir=/app/basic; cp -R /app/basic/web/css ${WEBSERVER_DOC_ROOT}/; sed \"s/DB_USER/${DB_USER}/;s/DB_PASSWORD/${DB_PASSWORD}/;s/DB_NAME/${DB_NAME}/\" ${WEBSERVER_DOC_ROOT}/db.php_orj > ${WEBSERVER_DOC_ROOT}/db.php && 
             sed \"/^[[:space:]]\\+.cookieValidationKey/s/''/'$$(tr -dc '[:alnum:]' </dev/urandom | head -c 32)'/\" ${WEBSERVER_DOC_ROOT}/web.php_orj > ${WEBSERVER_DOC_ROOT}/web.php; 
@@ -151,7 +151,7 @@ services:
         #    - database
         environment:
             #PMA_HOST: database
-            PMA_PMADB: phpmyadmin
+            PMA_PMADB: 'phpmyadmin'
             PMA_CONTROLUSER: '${PMA_CONTROLUSER}'
             PMA_CONTROLPASS: '${PMA_CONTROLPASS}'
             MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
