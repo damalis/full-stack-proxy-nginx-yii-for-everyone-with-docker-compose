@@ -1,12 +1,43 @@
 # [full stack proxy nginx Yii for everyone with docker compose](https://github.com/damalis/full-stack-proxy-nginx-yii-for-everyone-with-docker-compose)
 
-If You want to build a reverse proxy website with Yii "basic" at short time;  
+If You want to build a reverse proxy website with Yii at short time;
 
-#### Full stack Proxy Nginx Yii "basic":
-<p align="left"> <a href="https://www.yiiframework.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/993323?s=200&v=4" alt="Yii" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" alt="docker" width="40" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://mariadb.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/5877084?s=200&v=4" alt="mariadb" height="50" width="50"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1412239?s=200&v=4" alt="nginx" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/25158?s=200&v=4" alt="php" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://redis.io" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1529926?s=200&v=4" alt="redis" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bash/bash.png" alt="Bash" height="50" width="50" /> </a>&nbsp;&nbsp;&nbsp;
- <a href="https://www.phpmyadmin.net/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1351977?s=200&v=4" alt="phpmyadmin" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.apache.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/47359?s=200&v=4" alt="apache" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://letsencrypt.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/17889013?s=200&v=4" alt="letsencrypt" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.portainer.io/?hsLang=en" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/22225832?s=200&v=4" alt="portainer" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; <a href="https://www.offen.dev/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/47735043?s=200&v=4" alt="backup" height="35" width="35"/> </a> </p>
+#### Full stack Proxy Nginx Yii:
+<p align="left"> <a href="https://www.yiiframework.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/993323?s=200&v=4" alt="Yii" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" alt="docker" width="40" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://mariadb.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/5877084?s=200&v=4" alt="mariadb" height="50" width="50"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://dev.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/2452804?s=200&v=4" alt="mysql" height="50" width="50"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1412239?s=200&v=4" alt="nginx" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/25158?s=200&v=4" alt="php" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://redis.io" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1529926?s=200&v=4" alt="redis" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.phpmyadmin.net/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1351977?s=200&v=4" alt="phpmyadmin" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.apache.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/47359?s=200&v=4" alt="apache" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://certbot.eff.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/17889013?s=200&v=4" alt="certbot" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://letsencrypt.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/17889013?s=200&v=4" alt="letsencrypt" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.portainer.io/?hsLang=en" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/22225832?s=200&v=4" alt="portainer" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bash/bash.png" alt="Bash" height="40" width="40" /> </a>&nbsp;&nbsp;&nbsp; 																																																									 
+<a href="https://www.offen.dev/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/47735043?s=200&v=4" alt="backup" height="35" width="35"/> </a> </p>
 
 Plus, manage docker containers with Portainer.
+
+#### Supported CPU architectures:
+<p align="left"> arm64/aarch64, x86-64 </p>
+
+#### Supported Linux Package Manage Systems:
+<p align="left"> apk, dnf, yum, apt/apt-get, zypper, pacman </p>
+ 
+#### Supported Linux Operation Systems:
+<p align="left"> <a href="https://alpinelinux.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/7600810?s=200&v=4" alt="alpine linux" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://fedoraproject.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/e6b1e7f0fb8d0bf920bd719c7289243138bdc1b4/topics/fedora/fedora.png" alt="fedora" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.centos.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/79192?s=200&v=4" alt="centos" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.debian.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1854028?s=200&v=4" alt="debian" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://ubuntu.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/4604537?s=200&v=4" alt="ubuntu" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.raspberrypi.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1294177?s=200&v=4" alt="ubuntu" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/33972111?s=200&v=4" alt="redhat on s390x (IBM Z)" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.suse.com/products/server/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/623819?s=200&v=4" alt="opensuse on s390x (IBM Z)" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://archlinux.org/" target="_blank" rel="noreferrer"> <img src="https://gitlab.archlinux.org/uploads/-/system/group/avatar/23/iconfinder_archlinux_386451.png?width=48" alt="arch linux" height="40" width="40"/> </a> </p>
+
+##### Note: Fedora 37, 39 and alpine linux x86-64 compatible, could not try sles IBM Z s390x, rhel IBM Z s390x and raspberrypi.
 
 #### With this project you can quickly run the following:
 
@@ -15,7 +46,7 @@ Plus, manage docker containers with Portainer.
 - [proxy (nginx)](https://hub.docker.com/_/nginx)
 - [certbot (letsencrypt)](https://hub.docker.com/r/certbot/certbot)
 - [phpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
-- [database](https://hub.docker.com/_/mariadb)
+- [databaseMariadb](https://hub.docker.com/_/mariadb) [databaseMysql](https://hub.docker.com/_/mysql)
 - [redis](https://hub.docker.com/_/redis)
 - [backup](https://hub.docker.com/r/offen/docker-volume-backup)
 
@@ -24,12 +55,17 @@ Plus, manage docker containers with Portainer.
 - [Set DNS configuration of your domain name](https://support.google.com/a/answer/48090?hl=en)
 
 #### IPv4/IPv6 Firewall
+
 Create rules to open ports to the internet, or to a specific IPv4 address or range.
 
 - http: 80
 - https: 443
 - portainer: 9001
 - phpmyadmin: 9090
+
+#### Required Ram
+
+require up to 2 GB of RAM for **Docker** and **Docker Compose**.		 
 
 #### Contents:
 
@@ -43,7 +79,7 @@ Create rules to open ports to the internet, or to a specific IPv4 address or ran
 	- [Webserver](#webserver)
 	- [Redis](#redis)
 	- [phpMyAdmin](#phpmyadmin)
-	- [backup](#backup)					  
+	- [backup](#backup)
 
 ## Automatic
 
@@ -93,11 +129,17 @@ Copy the example environment into `.env`
 cp env.example .env
 ```
 
-Edit the `.env` file to change values of ```LOCAL_TIMEZONE```, ```DOMAIN_NAME```, ```DIRECTORY_PATH```, ```LETSENCRYPT_EMAIL```, ```DB_USER```, ```DB_PASSWORD```, ```DB_NAME```, ```MYSQL_ROOT_PASSWORD```, ```PMA_CONTROLUSER```, ```PMA_CONTROLPASS```, ```PMA_HTPASSWD_USERNAME``` and ```PMA_HTPASSWD_PASSWORD```.
+Edit the `.env` file to change values of ```LOCAL_TIMEZONE```, ```DOMAIN_NAME```, ```DIRECTORY_PATH```, ```LETSENCRYPT_EMAIL```, ```DB_USER```, ```DB_PASSWORD```, ```DB_NAME```, ```MYSQL_ROOT_PASSWORD```, ```DATABASE_IMAGE_NAME```, ```DATABASE_CONT_NAME```, ```DATABASE_PACKAGE_MANAGER```, ```DATABASE_ADMIN_COMMANDLINE```, ```PMA_CONTROLUSER```, ```PMA_CONTROLPASS```, ```PMA_HTPASSWD_USERNAME```, ```PMA_HTPASSWD_PASSWORD``` and ```SSL_SNIPPET```.
 
 LOCAL_TIMEZONE=[to see local timezones](https://docs.diladele.com/docker/timezones.html)
 
-DIRECTORY_PATH=```pwd``` at command line
+DIRECTORY_PATH=```pwd``` at command line\
+DATABASE_IMAGE_NAME=```mariadb``` or ```mysql```\
+DATABASE_CONT_NAME=```mariadb```, ```mysql``` or ```custom name```\
+DATABASE_PACKAGE_MANAGER=```apt-get update && apt-get install -y gettext-base``` for mariadb, ```microdnf install -y gettext``` for mysql\
+DATABASE_ADMIN_COMMANDLINE=```mariadb-admin``` for mariadb, ```mysqladmin``` for mysql\
+SSL_SNIPPET=```echo 'Generated Self-signed SSL Certificate at localhost'``` for localhost\
+SSL_SNIPPET=```certbot certonly --webroot --webroot-path /tmp/acme-challenge --rsa-key-size 4096 --non-interactive --agree-tos --no-eff-email --force-renewal --email ${LETSENCRYPT_EMAIL} -d ${DOMAIN_NAME} -d www.${DOMAIN_NAME}``` for remotehost
 
 and
 
@@ -106,13 +148,20 @@ cp ./phpmyadmin/apache2/sites-available/default-ssl.sample.conf ./phpmyadmin/apa
 ```
 change example.com to your domain name in ```./phpmyadmin/apache2/sites-available/default-ssl.conf``` file.
 
+```
+cp ./database/phpmyadmin/sql/create_tables.sql.template.example ./database/phpmyadmin/sql/create_tables.sql.template
+```
+change pma_controluser and db_authentication_password in ```./database/phpmyadmin/sql/create_tables.sql.template``` file.
+
 ### Installation
 
 Firstly: will create external volume
 
 ```
-docker volume create --driver local --opt type=none --opt device=${DIRECTORY_PATH}/certbot --opt o=bind certbot-etc
+docker volume create --driver local --opt type=none --opt device=${PWD}/certbot --opt o=bind certbot-etc
 ```
+
+for localhost ssl: Generate Self-signed SSL Certificate with guide [mkcert repository](https://github.com/FiloSottile/mkcert).
 
 ```
 docker compose up -d
@@ -133,6 +182,7 @@ For convenience you may add a new entry into your hosts file.
 ```
 docker compose -f portainer-docker-compose.yml -p portainer up -d 
 ```
+
 manage docker with [Portainer](https://www.portainer.io/) is the definitive container management tool for Docker, Docker Swarm with it's highly intuitive GUI and API. 
 
 You can also visit `https://example.com:9001` to access portainer after starting the containers.
@@ -171,7 +221,8 @@ To stop and remove all the containers use the `down` command:
 docker compose down
 ```
 
-to remove portainer and the other containers
+to remove portainer and the other containers:
+
 ```
 docker rm -f $(docker ps -a -q)
 ```
@@ -182,15 +233,36 @@ Use `-v` if you need to remove the database volume which is used to persist the 
 docker compose down -v
 ```
 
-to remove external certbot-etc and portainer and the other volumes
+to remove external certbot-etc and portainer and the other volumes:
 
 ```
 docker volume rm $(docker volume ls -q)
 ```
 
-to remove portainer and the other images
+Delete all images, containers, volumes, and networks that are not associated with a container (dangling):
+
+```
+docker system prune
+```
+
+To additionally remove any stopped containers and all unused images (not just dangling ones), add the -a flag to the command:
+
+```
+docker system prune -a
+```
+
+to remove portainer and the other images:
+
 ```
 docker rmi $(docker image ls -q)
+```
+
+### Logs containers
+
+To fetch the logs of a container.
+
+```
+docker container logs container_name_or_id
 ```
 
 ### Project from existing source
@@ -228,7 +300,7 @@ You should make changes custom host configurations ```./php-fpm/php-fpm.d/z-www.
 docker container restart yii
 ```
 
-add and/or remove yii site folders and files with any ftp client program in ```./yii/html``` folder.
+add and/or remove yii site folders and files with any ftp client program in ```./yii/web``` folder.
 <br />You can also visit `https://example.com` to access website after starting the containers.
 
 #### Proxy
@@ -247,9 +319,25 @@ add or remove code in the ```./webserver/extra/httpd-vhosts.conf``` file for cus
 
 #### Redis
 
-add [Redis Cache](https://github.com/yiisoft/yii2-redis) plugin and must add below code to config file.
+add [Redis Cache](https://github.com/yiisoft/yii2-redis?tab=readme-ov-file#configuration) plugin and must add below code to config file.
 
-modify redis cache configuration values in the ```./yii/html/index.php``` file.
+```
+return [
+    //....
+    'components' => [
+	    //....
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'redis',
+            'port' => 6379,
+            'database' => 0,
+        ],
+		//....
+    ]
+];
+```
+
+modify redis cache configuration values in the ```./yii/config/web.php``` file.
 
 ### phpMyAdmin
 
