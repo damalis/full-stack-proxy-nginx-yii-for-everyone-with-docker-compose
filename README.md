@@ -78,6 +78,7 @@ require up to 2 GB of RAM for **Docker** and **Docker Compose**.
 	- [Proxy](#proxy)
 	- [Webserver](#webserver)
 	- [Redis](#redis)
+	- [Debug](#debug)
 	- [phpMyAdmin](#phpmyadmin)
 	- [backup](#backup)
 
@@ -319,25 +320,55 @@ add or remove code in the ```./webserver/extra/httpd-vhosts.conf``` file for cus
 
 #### Redis
 
-add [Redis Cache](https://github.com/yiisoft/yii2-redis?tab=readme-ov-file#configuration) plugin and must add below code to config file.
-
+add Redis [Connect](https://github.com/yiisoft/yii2-redis?tab=readme-ov-file#configuration) plugin and must add below code to config file.
 ```
 return [
     //....
     'components' => [
-	    //....
+        //....
         'redis' => [
             'class' => 'yii\redis\Connection',
             'hostname' => 'redis',
             'port' => 6379,
             'database' => 0,
         ],
-		//....
+        //....
     ]
 ];
 ```
+add Redis [Cache](https://www.yiiframework.com/extension/yiisoft/yii2-redis/doc/api/2.0/yii-redis-cache) plugin and must add below code to config file.
+```
+return [
+    //....
+    'components' => [
+        //....
+        'cache' => [
+            'class' => 'yii\redis\Cache',
+        ],
+	//....
+    ],
+]
+```
 
 modify redis cache configuration values in the ```./yii/config/web.php``` file.
+
+#### Debug
+
+add [Debug](https://github.com/yiisoft/yii2-debug?tab=readme-ov-file#usage) plugin and must add below code to config file.
+
+```
+$config['bootstrap'][] = 'debug';
+$config['modules']['debug'] => [
+    'class' => 'yii\debug\Module',
+    // uncomment and adjust the following to add your IP if you are not connecting from localhost.
+    'allowedIPs' => ['*'],
+    ],
+    // ...
+],
+//....
+```
+
+modify debug configuration values in the ```./yii/config/web.php``` file.
 
 ### phpMyAdmin
 

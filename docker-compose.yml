@@ -41,7 +41,7 @@ services:
         command: >
             bash -c "apt-get -y update && sh /tmp/packagecheck.sh 'zip unzip gettext-base' && curl -sSL https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o - | sh -s intl redis && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer &&  
             if [ -f \"${WEBSERVER_DOC_ROOT}/config/web.php\" ]; then composer update --prefer-dist yiisoft/yii2-app-basic --working-dir=${WEBSERVER_DOC_ROOT}; else rm -f ${WEBSERVER_DOC_ROOT}/README.md && composer create-project --prefer-dist yiisoft/yii2-app-basic ${WEBSERVER_DOC_ROOT} && cp ${WEBSERVER_DOC_ROOT}/requirements.php ${WEBSERVER_DOC_ROOT}/web/; 
-            composer require --prefer-dist "yiisoft/yii2-redis":~2.0.0 --working-dir=${WEBSERVER_DOC_ROOT}; fi && sed -i \"s/localhost/database/;s/yii2basic/$${DB_NAME}/;s/root/$${DB_USER}/;s/'password' => ''/'password' => '$${DB_PASSWORD}'/\" ${WEBSERVER_DOC_ROOT}/config/db.php && 
+            composer require --prefer-dist "yiisoft/yii2-redis":~2.0.0 "yiisoft/yii2-debug":~2.1.0 --working-dir=${WEBSERVER_DOC_ROOT}; fi && sed -i \"s/localhost/database/;s/yii2basic/$${DB_NAME}/;s/root/$${DB_USER}/;s/'password' => ''/'password' => '$${DB_PASSWORD}'/\" ${WEBSERVER_DOC_ROOT}/config/db.php && 
             export RANDOM_VALUE=$(tr -dc '[:alnum:]' </dev/urandom | head -c 32) && sed -i \"s/'cookieValidationKey' => ''/'cookieValidationKey' => '$$RANDOM_VALUE'/\" ${WEBSERVER_DOC_ROOT}/config/web.php && 
             grep -qxF 'date.timezone = ${LOCAL_TIMEZONE}' ${PHP_INI_DIR_PREFIX}/php/conf.d/security.ini || echo 'date.timezone = ${LOCAL_TIMEZONE}' >> ${PHP_INI_DIR_PREFIX}/php/conf.d/security.ini; php-fpm"
 
